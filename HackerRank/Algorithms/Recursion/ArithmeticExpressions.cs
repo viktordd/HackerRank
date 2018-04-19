@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace HackerRank
+namespace HackerRank.Algorithms.Recursion
 {
     public class ArithmeticExpressions
     {

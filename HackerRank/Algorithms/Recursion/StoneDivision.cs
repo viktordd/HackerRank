@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace HackerRank
+namespace HackerRank.Algorithms.Recursion
 {
     public class StoneDivision
     {

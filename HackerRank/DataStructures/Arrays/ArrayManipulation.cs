@@ -1,5 +1,5 @@
 ﻿
-namespace HackerRank
+namespace HackerRank.DataStructures.Arrays
 {
     public class ArrayManipulationClass
     {

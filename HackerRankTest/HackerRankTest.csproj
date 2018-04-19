@@ -48,12 +48,12 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Tests\CoinChangeTest.cs" />
-    <Compile Include="Tests\StoneDivisionTest.cs" />
-    <Compile Include="Tests\ArrayManipulationTest.cs" />
-    <Compile Include="Tests\ArithmeticExpressionsTest.cs" />
-    <Compile Include="Tests\FindMergeNodesTest.cs" />
-    <Compile Include="Tests\CycleDetectionTest.cs" />
+    <Compile Include="Algorythms\DynamicProgramming\CoinChangeTest.cs" />
+    <Compile Include="Algorythms\Recursion\StoneDivisionTest.cs" />
+    <Compile Include="DataStructures\Arrays\ArrayManipulationTest.cs" />
+    <Compile Include="Algorythms\Recursion\ArithmeticExpressionsTest.cs" />
+    <Compile Include="DataStructures\LinkedLists\FindMergeNodesTest.cs" />
+    <Compile Include="DataStructures\LinkedLists\CycleDetectionTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

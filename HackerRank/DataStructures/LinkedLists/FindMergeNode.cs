@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace HackerRank
+namespace HackerRank.DataStructures.LinkedLists
 {
     public class FindMergeNodes
     {

@@ -1,7 +1,7 @@
-﻿using HackerRank;
+﻿using HackerRank.Algorithms.DynamicProgramming;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace HackerRankTest
+namespace HackerRankTest.Algorythms.DynamicProgramming
 {
     [TestClass]
     public class CoinChangeTest

@@ -1,7 +1,7 @@
-﻿using HackerRank;
+﻿using HackerRank.DataStructures.Arrays;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace HackerRankTest
+namespace HackerRankTest.DataStructures.Arrays
 {
     [TestClass]
     public class ArrayManipulationTest

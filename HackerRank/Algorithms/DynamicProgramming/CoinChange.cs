@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace HackerRank
+namespace HackerRank.Algorithms.DynamicProgramming
 {
     public class CoinChange
     {
-        static Dictionary<string, Int64> Solutions = new Dictionary<string, Int64>();
+        private static readonly Dictionary<string, Int64> Solutions = new Dictionary<string, Int64>();
 
         public static void Solve(String[] args)
         {

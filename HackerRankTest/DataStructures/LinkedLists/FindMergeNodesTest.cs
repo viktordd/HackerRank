@@ -1,7 +1,7 @@
-﻿using HackerRank;
+﻿using HackerRank.DataStructures.LinkedLists;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace HackerRankTest
+namespace HackerRankTest.DataStructures.LinkedLists
 {
     [TestClass]
     public class FindMergeNodesTest

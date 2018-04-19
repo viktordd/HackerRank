@@ -1,7 +1,7 @@
-﻿using HackerRank;
+﻿using HackerRank.Algorithms.Recursion;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace HackerRankTest
+namespace HackerRankTest.Algorythms.Recursion
 {
     [TestClass]
     public class StoneDivisionTest
