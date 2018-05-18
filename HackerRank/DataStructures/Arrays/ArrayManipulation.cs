@@ -1,12 +1,32 @@
-﻿
-namespace HackerRank.DataStructures.Arrays
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+namespace HackerRankTest.DataStructures.Arrays
 {
-    public class ArrayManipulationClass
+    [TestClass]
+    public class ArrayManipulation
     {
+        [TestMethod]
+        public void ArrayManipulation_Solutions()
+        {
+            int n = 5;
+
+            int m = 3;
+
+            long[][] queries = {
+                new long[] {1, 2, 100},
+                new long[] {2, 5, 100},
+                new long[] {3, 4, 100}
+            };
+
+            var result = arrayManipulation(n, queries);
+
+            Assert.AreEqual(200, result);
+        }
+
         /*
          * Complete the arrayManipulation function below.
          */
-        public static long ArrayManipulation(int n, long[][] queries)
+        public static long arrayManipulation(int n, long[][] queries)
         {
             long[] array = new long[n];
 

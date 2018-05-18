@@ -1,18 +1,25 @@
 ﻿using System;
 using System.Linq;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace HackerRank.Algorithms.Recursion
+namespace HackerRankTest.Algorythms.Recursion
 {
+    [TestClass]
     public class ArithmeticExpressions
     {
-        public static void Solve(String[] args)
+        [TestMethod]
+        public void ArithmeticExpressions_Solutions()
         {
-            /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution */
+            long[] list =
+            {
+                59, 34, 36, 63, 79, 82, 20, 4, 81, 16, 30, 93, 50, 38, 78, 10, 22, 61, 91, 27, 18, 78, 96, 19, 38, 10,
+                3, 17, 42, 90, 98, 60, 1, 63, 16, 28, 97, 45, 19, 35, 44, 56, 77, 43, 24, 42, 28, 35, 95, 44, 61, 55,
+                32, 84
+            };
 
-            int count = Convert.ToInt32(Console.ReadLine());
-            var list = Console.ReadLine()?.Split(' ').Select(i => Convert.ToInt64(i)).ToArray();
+            var result = GetExpression(list);
 
-            Console.WriteLine(GetExpression(list));
+            Assert.AreEqual("59+34+36+63+79+82+20+4+81+16+30+93+50+38+78+10+22+61+91+27+18+78+96+19+38+10+3+17+42+90+98+60+1+63+16+28+97+45+19+35+44+56+77+43+24+42+28+35+95+44-61*55-32*84", result);
         }
 
         public static string GetExpression(long[] list)

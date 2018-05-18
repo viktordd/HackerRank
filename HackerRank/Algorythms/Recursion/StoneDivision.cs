@@ -1,30 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace HackerRank.Algorithms.Recursion
+namespace HackerRankTest.Algorythms.Recursion
 {
+    [TestClass]
     public class StoneDivision
     {
-        public static void Solve(String[] args)
+        [TestMethod]
+        public void StoneDivision_Solutions()
         {
-            /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution */
-            int count = Convert.ToInt32(Console.ReadLine());
-
-            for (int i = 0; i < count; i++)
+            long pileSize = 377083280820;
+            long[] set =
             {
-                string[] split2 = Console.ReadLine()?.Split(' ');
+                1, 377083280820,
+                2, 188541640410,
+                3, 125694426940,
+                4, 94270820205,
+                5, 75416656164
+            };
 
-                long pileSize = Convert.ToInt64(split2?[0]);
-                //long setCount = Convert.ToInt64(split2[1]);
-                long[] set = Console.ReadLine()?.Split(' ').Select(m => Convert.ToInt64(m)).OrderByDescending(m => m).ToArray();
+            var result = GetMoves(pileSize, set);
 
-                var moves = GetMoves(pileSize, set);
-
-                Console.WriteLine(moves);
-            }
+            Assert.AreEqual(282812460621, result);
         }
-
+        
         public static long GetMoves(long pileSize, long[] set)
         {
             Dictionary<string, long> cache = new Dictionary<string, long>();

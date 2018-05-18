@@ -1,27 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace HackerRank.Algorithms.DynamicProgramming
+namespace HackerRankTest.Algorythms.DynamicProgramming
 {
+    [TestClass]
     public class CoinChange
     {
-        private static readonly Dictionary<string, Int64> Solutions = new Dictionary<string, Int64>();
-
-        public static void Solve(String[] args)
+        [TestMethod]
+        public void CoinChange_Solutions()
         {
-            /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution */
+            int change = 250;
+            int[] coins =
+            {
+                8, 47, 13, 24, 25, 31, 32, 35, 3, 19, 40, 48, 1, 4, 17, 38, 22, 30, 33, 15, 44, 46, 36, 9, 20, 49
+            };
 
-            var split1 = Console.ReadLine()?.Split(' ');
+            var result = GetSolutions(change, coins);
 
-            int change = Convert.ToInt32(split1?[0]);
-            int count = Convert.ToInt32(split1?[1]);
-            var coins = Console.ReadLine()?.Split(' ').Select(i => Convert.ToInt32(i)).OrderByDescending(i => i).ToArray();
-
-            var solutions = GetSolutions(change, coins);
-
-            Console.WriteLine(solutions);
+            Assert.AreEqual(3542323427, result);
         }
+        
+        private static readonly Dictionary<string, Int64> Solutions = new Dictionary<string, Int64>();
+        
 
         public static long GetSolutions(int change, int[] coins)
         {
