@@ -55,6 +55,8 @@
     <Compile Include="Algorythms\Recursion\ArithmeticExpressions.cs" />
     <Compile Include="DataStructures\LinkedLists\FindMergeNodes.cs" />
     <Compile Include="DataStructures\LinkedLists\CycleDetection.cs" />
+    <Compile Include="DataStructures\Stacks\SimpleTextEditor.cs" />
+    <Compile Include="DataStructures\Stacks\LargestRectangle.cs" />
     <Compile Include="DataStructures\Stacks\GameofTwoStacks.cs" />
     <Compile Include="DataStructures\Stacks\AndXorOr.cs" />
     <Compile Include="DataStructures\Stacks\PoisonousPlants.cs" />
