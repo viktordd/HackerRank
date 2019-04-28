@@ -18,19 +18,20 @@ namespace HackerRank.Sorting.MergeSortCountingInversions
     [TestClass]
     public class MergeSortCountingInversionsTests
     {
-        [TestMethod]
-        public void MergeSortCountingInversionsTest()
+        [DataTestMethod]
+        [DataRow(new[] { 1, 1, 1, 2, 2 }, 0, DisplayName = "{ 1, 1, 1, 2, 2 }, 0")]
+        [DataRow(new[] { 2, 1, 3, 1, 2 }, 4, DisplayName = "{ 2, 1, 3, 1, 2 }, 4")]
+        public void MergeSortCountingInversionsTest(int[] input, int expected)
         {
-            var input = new[] { 2, 1, 3, 1, 2 };
-            var result = Solution.CountInversions(input);
-            Assert.AreEqual(4, result);
+            var result = Solution.countInversions(input);
+            Assert.AreEqual(expected, result);
         }
     }
 
     class Solution
     {
         // Complete the countInversions function below.
-        public static long CountInversions(int[] arr)
+        public static long countInversions(int[] arr)
         {
             return Mergesort(arr, new int[arr.Length], 0, arr.Length - 1);
         }
@@ -69,8 +70,8 @@ namespace HackerRank.Sorting.MergeSortCountingInversions
                 else
                 {
                     temp[i] = arr[right];
-                    right++;
                     swaps += right - i;
+                    right++;
                 }
                 i++;
             }
@@ -101,7 +102,7 @@ namespace HackerRank.Sorting.MergeSortCountingInversions
                 int n = Convert.ToInt32(Console.ReadLine());
 
                 int[] arr = Array.ConvertAll(Console.ReadLine().Split(' '), arrTemp => Convert.ToInt32(arrTemp));
-                long result = CountInversions(arr);
+                long result = countInversions(arr);
 
                 textWriter.WriteLine(result);
             }
