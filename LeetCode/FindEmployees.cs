@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Dynamic;
 using System.Linq;
+
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+
 using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 
 namespace LeetCode
@@ -77,14 +77,13 @@ namespace LeetCode
             return JsonConvert.SerializeObject(employees.OrderBy(e => e.EmployeeName), Formatting.None, settings);
         }
 
-        private static IEnumerable<string> FindEmployees(JObject obj, IEnumerable<string> companyEmployees)
+        private static IEnumerable<Employee> FindEmployees(JObject obj, IEnumerable<Employee> companyEmployees)
         {
             const string employees = "employees";
 
-            if (obj.ContainsKey(employees))
+            if (obj.TryGetValue(employees, out JToken value))
             {
-                obj[employees].ToObject<List<Employee>>();
-                return new[] {employees};
+                return value.ToObject<List<Employee>>();
             }
             else
             {

@@ -1,4 +1,4 @@
-namespace MergeSortCountingInversions
+namespace HackerRank.Sorting.MergeSortCountingInversions
 {
     using System.CodeDom.Compiler;
     using System.Collections.Generic;
@@ -16,13 +16,13 @@ namespace MergeSortCountingInversions
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]
-    class Test
+    public class MergeSortCountingInversionsTests
     {
         [TestMethod]
-        public void TestMethod()
+        public void MergeSortCountingInversionsTest()
         {
             var input = new[] { 2, 1, 3, 1, 2 };
-            var result = Solution.countInversions(input);
+            var result = Solution.CountInversions(input);
             Assert.AreEqual(4, result);
         }
     }
@@ -30,25 +30,25 @@ namespace MergeSortCountingInversions
     class Solution
     {
         // Complete the countInversions function below.
-        public static long countInversions(int[] arr)
+        public static long CountInversions(int[] arr)
         {
-            return mergesort(arr, new int[arr.Length], 0, arr.Length - 1);
+            return Mergesort(arr, new int[arr.Length], 0, arr.Length - 1);
         }
 
-        private static long mergesort(int[] arr, int[] temp, int leftStart, int rightEnd)
+        private static long Mergesort(int[] arr, int[] temp, int leftStart, int rightEnd)
         {
             long swaps = 0;
             if (leftStart >= rightEnd)
                 return swaps;
 
             int middle = (leftStart + rightEnd) / 2;
-            swaps += mergesort(arr, temp, leftStart, middle);
-            swaps += mergesort(arr, temp, middle + 1, rightEnd);
-            swaps += mergeHalves(arr, temp, leftStart, rightEnd);
+            swaps += Mergesort(arr, temp, leftStart, middle);
+            swaps += Mergesort(arr, temp, middle + 1, rightEnd);
+            swaps += MergeHalves(arr, temp, leftStart, rightEnd);
             return swaps;
         }
 
-        private static long mergeHalves(int[] arr, int[] temp, int leftStart, int rightEnd)
+        private static long MergeHalves(int[] arr, int[] temp, int leftStart, int rightEnd)
         {
             long swaps = 0;
             int leftEnd = (leftStart + rightEnd) / 2;
@@ -75,14 +75,14 @@ namespace MergeSortCountingInversions
                 i++;
             }
 
-            copy(arr, left, temp, i, leftEnd - left + 1);
-            copy(arr, right, temp, i, rightEnd - right + 1);
-            copy(temp, leftStart, arr, leftStart, size);
+            Copy(arr, left, temp, i, leftEnd - left + 1);
+            Copy(arr, right, temp, i, rightEnd - right + 1);
+            Copy(temp, leftStart, arr, leftStart, size);
 
             return swaps;
         }
 
-        private static void copy(int[] source, int sStart, int[] dest, int dStart, int count)
+        private static void Copy(int[] source, int sStart, int[] dest, int dStart, int count)
         {
             for (int i = 0; i < count && sStart < source.Length && dStart < dest.Length; i++, sStart++, dStart++)
             {
@@ -101,7 +101,7 @@ namespace MergeSortCountingInversions
                 int n = Convert.ToInt32(Console.ReadLine());
 
                 int[] arr = Array.ConvertAll(Console.ReadLine().Split(' '), arrTemp => Convert.ToInt32(arrTemp));
-                long result = countInversions(arr);
+                long result = CountInversions(arr);
 
                 textWriter.WriteLine(result);
             }
