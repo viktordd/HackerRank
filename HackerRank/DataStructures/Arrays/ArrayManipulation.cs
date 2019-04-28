@@ -1,6 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace HackerRankTest.DataStructures.Arrays
+namespace HackerRank.DataStructures.Arrays
 {
     [TestClass]
     public class ArrayManipulation
@@ -9,8 +9,6 @@ namespace HackerRankTest.DataStructures.Arrays
         public void ArrayManipulation_Solutions()
         {
             int n = 5;
-
-            int m = 3;
 
             long[][] queries = {
                 new long[] {1, 2, 100},

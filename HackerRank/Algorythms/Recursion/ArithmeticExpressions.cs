@@ -2,7 +2,7 @@
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace HackerRankTest.Algorythms.Recursion
+namespace HackerRank.Algorythms.Recursion
 {
     [TestClass]
     public class ArithmeticExpressions

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace HackerRankTest.DataStructures.LinkedLists
+namespace HackerRank.DataStructures.LinkedLists
 {
     [TestClass]
     public class FindMergeNodes
@@ -10,15 +10,13 @@ namespace HackerRankTest.DataStructures.LinkedLists
         [TestMethod]
         public void FindMergeNode_Solution_3()
         {
-            var mergeAt = new Node { Data = 3 };
-            var headA = new Node
+            var mergeAt = new Node(3);
+            var headA = new Node(1)
             {
-                Data = 1,
                 Next = mergeAt
             };
-            var headB = new Node
+            var headB = new Node(2)
             {
-                Data = 2,
                 Next = mergeAt
             };
             var result = FindMergeNode(headA, headB);
@@ -28,19 +26,16 @@ namespace HackerRankTest.DataStructures.LinkedLists
         [TestMethod]
         public void FindMergeNode_Solution_4()
         {
-            var mergeAt = new Node { Data = 4 };
-            var headA = new Node
+            var mergeAt = new Node(4);
+            var headA = new Node(1)
             {
-                Data = 1,
-                Next = new Node
+                Next = new Node(3)
                 {
-                    Data = 3,
                     Next = mergeAt
                 }
             };
-            var headB = new Node
+            var headB = new Node(2)
             {
-                Data = 2,
                 Next = mergeAt
             };
             var result = FindMergeNode(headA, headB);
@@ -50,18 +45,15 @@ namespace HackerRankTest.DataStructures.LinkedLists
         [TestMethod]
         public void FindMergeNode_Solution_5()
         {
-            var mergeAt = new Node { Data = 5 };
-            var headA = new Node
+            var mergeAt = new Node(5);
+            var headA = new Node(1)
             {
-                Data = 1,
                 Next = mergeAt
             };
-            var headB = new Node
+            var headB = new Node(2)
             {
-                Data = 2,
-                Next = new Node
+                Next = new Node(3)
                 {
-                    Data = 3,
                     Next = mergeAt
                 }
             };
@@ -115,6 +107,10 @@ namespace HackerRankTest.DataStructures.LinkedLists
         {
             public int Data { get; set; }
             public Node Next { get; set; }
+            public Node(int x = 0)
+            {
+                Data = x;
+            }
         }
     }
 }

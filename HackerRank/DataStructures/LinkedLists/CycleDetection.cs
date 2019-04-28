@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace HackerRankTest.DataStructures.LinkedLists
+namespace HackerRank.DataStructures.LinkedLists
 {
     [TestClass]
     public class CycleDetection

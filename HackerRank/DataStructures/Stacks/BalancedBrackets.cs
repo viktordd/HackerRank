@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace HackerRankTest.DataStructures.Stacks
+namespace HackerRank.DataStructures.Stacks
 {
     [TestClass]
     public class BalancedBrackets
