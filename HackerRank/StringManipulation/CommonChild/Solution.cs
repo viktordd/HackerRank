@@ -14,6 +14,7 @@
         [DataRow("SHINCHAN", "NOHARAAA", 3, DisplayName = "SHINCHAN, NOHARAAA, 3")]
         [DataRow("ABCDEF", "FBDAMN", 2, DisplayName = "ABCDEF, FBDAMN, 2")]
         [DataRow("ABZZEF", "ABZZEF", 6, DisplayName = "ABZZEF, ABZZEF, 6")]
+        [DataRow("ABZZE", "ABZZE", 5, DisplayName = "ABZZE, ABZZE, 5")]
         [DataRow("ABZZEF", "ABXXXEF", 4, DisplayName = "ABZZEF, ABXXXEF, 4")]
         [DataRow("1ABZZEF2", "3ABXXXEF4", 4, DisplayName = "1ABZZEF2, 3ABXXXEF4, 4")]
         public void CommonChildTest(string s1, string s2, int expected)
@@ -59,10 +60,11 @@
         {
             int[,] c = new int[2, s2.Length + 1];
 
+            int ci = 0;
             for (int i = 0; i < s1.Length; i++)
             {
-                int ci = (i + 1) % 2;
-                int ciPrev = i % 2;
+                ci = i % 2;
+                int ciPrev = 1 - ci;
                 for (int j = 0; j < s2.Length; j++)
                 {
                     int cj = j + 1;
@@ -74,7 +76,7 @@
                 }
             }
 
-            return c[1, s2.Length];
+            return c[ci, s2.Length];
         }
 
         static void Main(string[] args)
