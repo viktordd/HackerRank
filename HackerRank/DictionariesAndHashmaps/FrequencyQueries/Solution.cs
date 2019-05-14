@@ -1,4 +1,5 @@
-﻿namespace HackerRank.Sorting.DictionariesAndHashmaps
+﻿namespace HackerRank.DictionariesAndHashmaps.FrequencyQueries
+
 {
     using System;
     using System.Collections.Generic;
@@ -9,7 +10,7 @@
     using Newtonsoft.Json;
 
     [TestClass]
-    public class MergeSortCountingInversionsTests
+    public class FrequencyQueriesTests
     {
         [DataTestMethod]
         [DataRow("[ [1, 5], [3, 2], [1, 5], [3, 2], [2, 5], [3, 1], [2, 5], [3, 1] ]", new[] { 0, 1, 1, 0 },
@@ -20,7 +21,7 @@
             DisplayName = "[ [3, 4], [2, 1003], [1, 16], [3, 1] ], [ 0, 1 ]")]
         [DataRow("[ [1, 3], [2, 3], [3, 2], [1, 4], [1, 5], [1, 5], [1, 4], [3, 2], [2, 4], [3, 2] ]", new[] { 0, 1, 1 },
             DisplayName = "[ [1, 3], [2, 3], [3, 2], [1, 4], [1, 5], [1, 5], [1, 4], [3, 2], [2, 4], [3, 2] ], [ 0, 1, 1 ]")]
-        public void MergeSortCountingInversionsTest(string input, int[] expected)
+        public void FrequencyQueriesTest(string input, int[] expected)
         {
             var list = JsonConvert.DeserializeObject<List<int[]>>(input);
             var result = Solution.freqQuery(list);
