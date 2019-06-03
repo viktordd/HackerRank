@@ -1,17 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26430.12
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28917.181
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HackerRank", "HackerRank\HackerRank.csproj", "{1E05EA10-6819-4531-B7AB-47EB6F92AECA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HackerRank", "HackerRank\HackerRank.csproj", "{1E05EA10-6819-4531-B7AB-47EB6F92AECA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeeksforGeeks", "GeeksforGeeks\GeeksforGeeks.csproj", "{53D4A202-9649-4CAF-B22D-645BD24DE821}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeeksforGeeks", "GeeksforGeeks\GeeksforGeeks.csproj", "{53D4A202-9649-4CAF-B22D-645BD24DE821}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Helpers", "Helpers\Helpers.csproj", "{B26FDD3B-B630-4131-A891-A49554264CD5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Helpers", "Helpers\Helpers.csproj", "{B26FDD3B-B630-4131-A891-A49554264CD5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeetCode", "LeetCode\LeetCode.csproj", "{7FCC930F-3BCB-4E06-9049-568AFB836AB0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LeetCode", "LeetCode\LeetCode.csproj", "{7FCC930F-3BCB-4E06-9049-568AFB836AB0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trees", "Trees\Trees.csproj", "{5EA6C8FC-C6FE-4184-B29C-5CAE4F3D78DB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Trees", "Trees\Trees.csproj", "{5EA6C8FC-C6FE-4184-B29C-5CAE4F3D78DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithms", "Algorithms\Algorithms.csproj", "{3DAE9325-30C6-42A6-A200-F10397D62B60}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{5EA6C8FC-C6FE-4184-B29C-5CAE4F3D78DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5EA6C8FC-C6FE-4184-B29C-5CAE4F3D78DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5EA6C8FC-C6FE-4184-B29C-5CAE4F3D78DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DAE9325-30C6-42A6-A200-F10397D62B60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DAE9325-30C6-42A6-A200-F10397D62B60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DAE9325-30C6-42A6-A200-F10397D62B60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DAE9325-30C6-42A6-A200-F10397D62B60}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
