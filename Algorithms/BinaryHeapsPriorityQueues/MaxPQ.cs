@@ -28,7 +28,8 @@ namespace Algorithms
         public MaxPQ()
         {
             pq = new List<T>();
-        }
+        }
+
         public bool IsEmpty()
         {
             return pq.Count == 0;
@@ -85,6 +86,7 @@ namespace Algorithms
             T t = pq[i];
             pq[i] = pq[j];
             pq[j] = t;
-        }
+        }
+
     }
 }
