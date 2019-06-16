@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace HackerRank.Algorythms.DynamicProgramming
+namespace HackerRank.Algorithms.DynamicProgramming
 {
     [TestClass]
     public class CoinChange
@@ -21,13 +20,13 @@ namespace HackerRank.Algorythms.DynamicProgramming
 
             Assert.AreEqual(3542323427, result);
         }
-        
-        private static readonly Dictionary<string, Int64> Solutions = new Dictionary<string, Int64>();
-        
+
+        private static readonly Dictionary<string, long> Solutions = new Dictionary<string, long>();
+
 
         public static long GetSolutions(int change, int[] coins)
         {
-            Int64 solutions = 0;
+            long solutions = 0;
 
             if (change == 0 || coins.Length == 0)
                 return solutions;
@@ -40,7 +39,7 @@ namespace HackerRank.Algorythms.DynamicProgramming
             return solutions;
         }
 
-        private static Int64 GetChange(int change, int[] coins, int coin)
+        private static long GetChange(int change, int[] coins, int coin)
         {
             string key = change + ": " + string.Join(" ", coins.Skip(coin));
             if (Solutions.ContainsKey(key))
@@ -54,7 +53,7 @@ namespace HackerRank.Algorythms.DynamicProgramming
             else if (change == 0)
                 return 1;
 
-            Int64 solutions = 0;
+            long solutions = 0;
             for (int i = coin; i < coins.Length; i++)
             {
                 solutions += GetChange(change, coins, i);

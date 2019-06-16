@@ -1,8 +1,7 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace HackerRank.Algorythms.Recursion
+namespace HackerRank.Algorithms.Recursion
 {
     [TestClass]
     public class ArithmeticExpressions
@@ -27,7 +26,7 @@ namespace HackerRank.Algorythms.Recursion
             return list[0] + Check(list, 1, list[0]);
         }
 
-        static string Check(Int64[] list, int index, long current)
+        static string Check(long[] list, int index, long current)
         {
             current %= 101;
 

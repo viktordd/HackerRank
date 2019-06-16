@@ -2,7 +2,7 @@
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace HackerRank.Algorythms.Recursion
+namespace HackerRank.Algorithms.Recursion
 {
     [TestClass]
     public class StoneDivision
