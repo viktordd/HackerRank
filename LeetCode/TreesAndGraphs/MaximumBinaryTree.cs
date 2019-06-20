@@ -10,7 +10,11 @@ namespace LeetCode.TreesAndGraphs
         [TestMethod]
         public void MaximumBinaryTree_Solutions()
         {
-            AssertEnumerable.AreEqual(new int?[] { 6, 3, 5, null, 2, 0, null, null, 1 }, ConstructMaximumBinaryTree(new[] {3, 2, 1, 6, 0, 5}));
+            int?[] expected = new int?[] { 6, 3, 5, null, 2, 0, null, null, 1 };
+
+            TreeNode result = ConstructMaximumBinaryTree(new[] { 3, 2, 1, 6, 0, 5 });
+
+            AssertEnumerable.AreEqual(expected, result.AsArray());
         }
 
         public TreeNode ConstructMaximumBinaryTree(int[] nums)

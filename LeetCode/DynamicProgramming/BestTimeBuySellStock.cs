@@ -21,10 +21,12 @@ namespace LeetCode.DynamicProgramming
 
         public int MaxProfit(int[] prices)
         {
-            int minPrice = int.MinValue;
             int maxProfit = 0;
+            if (prices.Length == 0)
+                return maxProfit;
 
-            for (int i = 0; i < prices.Length; i++)
+            int minPrice = prices[0];
+            for (int i = 1; i < prices.Length; i++)
             {
                 if (prices[i] < minPrice)
                     minPrice = prices[i];

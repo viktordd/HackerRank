@@ -5,8 +5,8 @@ using System.Diagnostics;
 
 namespace Algorithms.BinarySearchTree
 {
-    public class RedBlackBST<Key, Value> : IEnumerable<Key>
-        where Key : IComparable<Key>
+    public class RedBlackBST<TKey, TValue> : IEnumerable<TKey>
+        where TKey : IComparable<TKey>
     {
         private const bool RED = true;
         private const bool BLACK = false;
@@ -15,13 +15,13 @@ namespace Algorithms.BinarySearchTree
 
         private class Node
         {
-            public Key key;
-            public Value val;
+            public TKey key;
+            public TValue val;
             public Node left, right;
             public bool color;
             //public int count;
 
-            public Node(Key key, Value val, bool color)
+            public Node(TKey key, TValue val, bool color)
             {
                 this.key = key;
                 this.val = val;
@@ -29,13 +29,14 @@ namespace Algorithms.BinarySearchTree
             }
         }
 
-        public void Put(Key key, Value val) => root = Put(root, key, val);
+        public void Put(TKey key, TValue val) => root = Put(root, key, val);
 
-        private Node Put(Node x, Key key, Value val)
+        private Node Put(Node x, TKey key, TValue val)
         {
             if (x == null) return new Node(key, val, RED);
             int cmp = key.CompareTo(x.key);
             if (cmp < 0)
+
                 x.left = Put(x.left, key, val);
             else if (cmp > 0)
                 x.right = Put(x.right, key, val);
@@ -43,6 +44,11 @@ namespace Algorithms.BinarySearchTree
                 x.val = val;
             //x.count = 1 + size(x.left) + size(x.right);
 
+            return FixNode(x);
+        }
+
+        private Node FixNode(Node x)
+        {
             //lean left
             if (IsRed(x.right) && !IsRed(x.left)) x = RotateLeft(x);
             //balance 4-node
@@ -53,7 +59,7 @@ namespace Algorithms.BinarySearchTree
             return x;
         }
 
-        public bool TryGet(Key key, out Value val)
+        public bool TryGet(TKey key, out TValue val)
         {
             Node x = root;
             while (x != null)
@@ -87,9 +93,9 @@ namespace Algorithms.BinarySearchTree
 
         private bool IsRed(Node x) => x?.color == RED;
 
-        public void Delete(Key key) => root = Delete(root, key);
+        public void Delete(TKey key) => root = Delete(root, key);
 
-        private Node Delete(Node x, Key key)
+        private Node Delete(Node x, TKey key)
         {
             //TODO: implement red-black delete
             if (x == null) return null;
@@ -100,28 +106,29 @@ namespace Algorithms.BinarySearchTree
             else
             {
                 // no right child
-                if (x.right == null) return x.left;
+                if (x.right == null) return FixNode(x.left);
                 // no left child
-                if (x.left == null) return x.right;
+                if (x.left == null) return FixNode(x.right);
 
                 // replace with successor
                 Node t = x;
                 x = Min(t.right);
                 x.right = DeleteMin(t.right);
                 x.left = t.left;
+                x.color = t.color;
             }
             //x.count = size(x.left) + size(x.right) + 1;
-            return x;
+            return FixNode(x);
         }
 
         public void DeleteMin() => root = DeleteMin(root);
 
         private Node DeleteMin(Node x)
         {
-            if (x.left == null) return x.right;
+            if (x.left == null) return FixNode(x.right);
             x.left = DeleteMin(x.left);
             //x.count = 1 + size(x.left) + size(x.right);
-            return x;
+            return FixNode(x);
         }
 
         private Node RotateLeft(Node p)
@@ -166,7 +173,7 @@ namespace Algorithms.BinarySearchTree
         //    return x.count;
         //}
 
-        public bool TryFloor(Key key, out Key outKey)
+        public bool TryFloor(TKey key, out TKey outKey)
         {
             Node x = Floor(root, key);
             if (x == null)
@@ -178,7 +185,7 @@ namespace Algorithms.BinarySearchTree
             return true;
         }
 
-        private Node Floor(Node x, Key key)
+        private Node Floor(Node x, TKey key)
         {
             if (x == null) return null;
             int cmp = key.CompareTo(x.key);
@@ -192,7 +199,7 @@ namespace Algorithms.BinarySearchTree
             else return x;
         }
 
-        public IEnumerator<Key> GetEnumerator()
+        public IEnumerator<TKey> GetEnumerator()
         {
             return new InorderKeyEnumerator(root);
         }
@@ -202,53 +209,55 @@ namespace Algorithms.BinarySearchTree
             return new InorderKeyEnumerator(root);
         }
 
-        private struct InorderKeyEnumerator : IEnumerator<Key>
+        private struct InorderKeyEnumerator : IEnumerator<TKey>
         {
             Node root;
-            Queue<Node> q;
+            Stack<Node> stack;
 
             public InorderKeyEnumerator(Node root)
             {
                 this.root = root;
-                q = null;
+                stack = null;
             }
 
-            public Key Current => q == null ? throw new Exception() : q.Peek().key;
+            public TKey Current => stack == null ? throw new Exception() : stack.Peek().key;
 
             object IEnumerator.Current => Current;
 
             public bool MoveNext()
             {
-                if (q == null)
+                if (stack == null)
                 {
-                    q = new Queue<Node>();
-                    Inorder(root, q);
+                    stack = new Stack<Node>();
+                    Inorder(root);
                 }
                 else
                 {
-                    var x = q.Dequeue();
-                    Inorder(x.right, q);
+                    var x = stack.Pop();
+                    Inorder(x.right);
                 }
 
-                return q.Count > 0;
+                return stack.Count > 0;
             }
 
-            private void Inorder(Node x, Queue<Node> q)
+            private void Inorder(Node x)
             {
-                if (x == null) return;
-                Inorder(x.left, q);
-                q.Enqueue(x);
+                while (x == null)
+                {
+                    stack.Push(x);
+                    x = x.left;
+                }
             }
 
             public void Reset()
             {
-                q = null;
+                stack = null;
             }
 
             public void Dispose()
             {
                 root = null;
-                q = null;
+                stack = null;
             }
         }
     }

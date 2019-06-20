@@ -12,14 +12,14 @@ namespace LeetCode.ArraysAndStrings
             Assert.AreEqual("One Billion Two Hundred Thirty Four Million Five Hundred Sixty Seven Thousand Eight Hundred Ninety One", NumberToWords(1_234_567_891));
             Assert.AreEqual("One Billion Two Hundred Ten Million Five Hundred Fifteen Thousand Ninety One", NumberToWords(1_210_515_091));
             Assert.AreEqual("Zero", NumberToWords(0));
-            Assert.AreEqual("One Million", NumberToWords(1000000));
+            Assert.AreEqual("One Million", NumberToWords(1_000_000));
         }
 
         //1 234 567 891
         //"One Billion    Two Hundred Thirty Four Million     Five Hundred Sixty Seven Thousand     Eight Hundred Ninety One"
         private static readonly string[] Ones = { "Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine" };
         private static readonly string[] Teens = { "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen" };
-        private static readonly string[] Tens = { "", "", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety" };
+        private static readonly string[] Tens = { string.Empty, string.Empty, "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety" };
         private static readonly string[] Big = { "Hundred", "Thousand", "Million", "Billion" };
 
         public string NumberToWords(int num)
@@ -49,12 +49,11 @@ namespace LeetCode.ArraysAndStrings
         public void NumberToWords(Stack<string> res, int num)
         {
             int ones = num % 10;
-            int tens = num % 100 / 10;
-            int hundreds = num / 100;
+            int tens = num / 10 % 10;
+            int hundreds = num / 100 % 10;
 
             if (tens == 1)
                 res.Push(Teens[ones]);
-
             else
             {
                 if (ones > 0)
