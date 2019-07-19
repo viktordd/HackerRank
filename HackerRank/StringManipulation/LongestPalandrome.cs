@@ -58,19 +58,19 @@ namespace HackerRank.StringManipulation
             return a.end - a.start > b.end - b.start ? a : b;
         }
 
-        static string gameOfThrones(string s)
-        {
-            var counts = new int[26];
+        //static string gameOfThrones(string s)
+        //{
+        //    var counts = new int[26];
 
-            for (int i = 0; i < s.Length; i++)
-            {
-                counts[s[i] - 'a']++;
-            }
+        //    for (int i = 0; i < s.Length; i++)
+        //    {
+        //        counts[s[i] - 'a']++;
+        //    }
 
-            var odd = counts.Sum(c => c % 2);
+        //    var odd = counts.Sum(c => c % 2);
 
-            return odd < 2;
-        }
+        //    return odd < 2;
+        //}
 
         //        def findLongestPalindrome(string):
         //    return max([getPalindromeAt(i, string) for i in xrange(len(string))],
