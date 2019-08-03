@@ -16,7 +16,7 @@ namespace LeetCode
         [DataRow(new[] { 1, 2, 3 }, "[[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]")]
         public void Permute_Solutions(int[] nums, string expectedJson)
         {
-            var solution = new Solution();
+            var solution = new Solution2();
 
             var result = solution.Permute(nums);
 
