@@ -85,7 +85,7 @@ namespace HackerRank.DataStructures.Stacks
             {
                 return str[at];
             }
-            
+
             private void Undo()
             {
                 if (history.Count > 0)
@@ -145,8 +145,8 @@ namespace HackerRank.DataStructures.Stacks
         }
 
 
-        
-        static void Main(String[] args)
+
+        static void TextEditor_Main(String[] args)
         {
             /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution */
             TextWriter textWriter = new StreamWriter(System.Environment.GetEnvironmentVariable("OUTPUT_PATH"), true);

@@ -36,7 +36,6 @@ namespace Algorithms.BinarySearchTree
             if (x == null) return new Node(key, val, RED);
             int cmp = key.CompareTo(x.key);
             if (cmp < 0)
-
                 x.left = Put(x.left, key, val);
             else if (cmp > 0)
                 x.right = Put(x.right, key, val);

@@ -1,10 +1,10 @@
 ﻿using System;
 
-namespace LeetCode
+namespace HackerRank
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main1(string[] args)
         {
             Console.WriteLine("Hello World!");
         }

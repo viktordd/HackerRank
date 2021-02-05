@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace LeetCode
 {
@@ -7,14 +8,25 @@ namespace LeetCode
     {
         #region Tests
 
-        [TestMethod]
-        public void Template_Solutions()
+        [DataTestMethod]
+        [DataRow(true)]
+        public void RegularExpressionMatching_Solutions(bool expected)
         {
+            var solution = new Solution();
 
+            var result = solution.Method();
+
+            Assert.AreEqual(expected, result);
         }
 
         #endregion
 
-
+        public class Solution
+        {
+            public bool Method()
+            {
+                return true;
+            }
+        }
     }
 }

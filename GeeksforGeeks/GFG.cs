@@ -15,7 +15,7 @@ public class GFG
     }
 
 
-    public static void Main()
+    public static void GFG_Main()
     {
         int t = Convert.ToInt32(Console.ReadLine());
         for (int i = 0; i < t; i++)

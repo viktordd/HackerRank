@@ -91,7 +91,7 @@ namespace HackerRank.Sorting.MergeSortCountingInversions
             }
         }
 
-        static void Main(string[] args)
+        static void MergeHalves_Main(string[] args)
         {
             TextWriter textWriter = new StreamWriter(@System.Environment.GetEnvironmentVariable("OUTPUT_PATH"), true);
 

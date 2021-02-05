@@ -21,7 +21,7 @@ namespace HackerRank.DataStructures.Stacks
             Assert.AreEqual(2, queue.Peek());
             queue.Enqueue(3);
             Assert.AreEqual(2, queue.Peek());
-            
+
             Assert.AreEqual(2, queue.Dequeue());
             Assert.AreEqual(3, queue.Dequeue());
 
@@ -82,11 +82,11 @@ namespace HackerRank.DataStructures.Stacks
             }
         }
 
-        static void Main(String[] args)
+        static void StacksQueue_Main(String[] args)
         {
             /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution */
             TextWriter textWriter = new StreamWriter(System.Environment.GetEnvironmentVariable("OUTPUT_PATH"), true);
-            
+
             StacksQueue<int> queue = new StacksQueue<int>();
 
             int g = Convert.ToInt32(Console.ReadLine());

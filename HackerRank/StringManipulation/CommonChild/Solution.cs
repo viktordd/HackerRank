@@ -79,7 +79,7 @@
             return c[ci, s2.Length];
         }
 
-        static void Main(string[] args)
+        static void CommonChild_Main(string[] args)
         {
             TextWriter textWriter = new StreamWriter(@System.Environment.GetEnvironmentVariable("OUTPUT_PATH"), true);
 

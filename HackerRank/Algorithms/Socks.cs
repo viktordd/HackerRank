@@ -22,7 +22,7 @@ class Solution {
     /// <returns></returns>
     static int sockMerchant(int n, int[] ar) {
         HashSet<int> single = new HashSet<int>();
-        
+
         int pairs = 0;
 
         for (int i = 0; i < ar.Length; i++)
@@ -36,7 +36,7 @@ class Solution {
         return pairs;
     }
 
-    static void Main(string[] args) {
+    static void sockMerchant_Main(string[] args) {
         TextWriter textWriter = new StreamWriter(@System.Environment.GetEnvironmentVariable("OUTPUT_PATH"), true);
 
         int n = Convert.ToInt32(Console.ReadLine());

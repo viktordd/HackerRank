@@ -158,7 +158,7 @@ namespace HackerRank.Sorting.FraudulentActivityNotifications
             }
         }
 
-        static void Main(string[] args)
+        static void activityNotifications_Main(string[] args)
         {
             TextWriter textWriter = new StreamWriter(@System.Environment.GetEnvironmentVariable("OUTPUT_PATH"), true);
 

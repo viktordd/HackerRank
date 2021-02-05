@@ -96,7 +96,7 @@
                 freq[f] = 1;
         }
 
-        static void Main(string[] args)
+        static void freqQuery_Main(string[] args)
         {
             TextWriter textWriter = new StreamWriter(@System.Environment.GetEnvironmentVariable("OUTPUT_PATH"), true);
 
