@@ -10,7 +10,7 @@ namespace LeetCode
 
         [DataTestMethod]
         [DataRow(true)]
-        public void RegularExpressionMatching_Solutions(bool expected)
+        public void Template_Solutions(bool expected)
         {
             var solution = new Solution();
 
