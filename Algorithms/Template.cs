@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace LeetCode
+namespace Algorithms
 {
     [TestClass]
     public class TemplateTest

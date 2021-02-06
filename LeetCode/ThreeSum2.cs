@@ -9,7 +9,7 @@ using Newtonsoft.Json;
 namespace LeetCode
 {
     [TestClass]
-    public class Solution2
+    public class ThreeSum2
     {
         [DataTestMethod]
         [DataRow(20,
@@ -27,7 +27,7 @@ namespace LeetCode
         {
 
             // started with brute force solution:
-            // check all posible 
+            // check all posible
 
             // optimize by sorting
 
@@ -59,7 +59,7 @@ namespace LeetCode
 
             foreach (var f in forwardRouteList)
             {
-                
+
 
                 foreach (var r in returnRouteList)
                 {

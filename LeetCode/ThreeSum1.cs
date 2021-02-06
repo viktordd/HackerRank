@@ -7,7 +7,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace LeetCode
 {
     [TestClass]
-    public class Solution1
+    public class ThreeSum1
     {
         [DataTestMethod]
         [DataRow(4, new[] { 20, 4, 8, 2 }, 54)]
@@ -25,7 +25,7 @@ namespace LeetCode
             // WRITE YOUR CODE HERE
             // to get minimun time the algorithm will recursively merge
             // the two files with the lowest time
-            // use min heap to hold all values, 
+            // use min heap to hold all values,
             // pop two values merge them and add the result back in the heap.
 
             var heap = new MinHeap();
@@ -53,7 +53,7 @@ namespace LeetCode
 
     }
 
-    //Create min heap to hold 
+    //Create min heap to hold
     public class MinHeap
     {
         private List<int> heap;
@@ -90,7 +90,7 @@ namespace LeetCode
             return min;
         }
 
-        // swim exchanges an element with it's parent 
+        // swim exchanges an element with it's parent
         // as long as it's smaller than it.
         private void Swim(int k)
         {

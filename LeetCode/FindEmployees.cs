@@ -10,11 +10,11 @@ using Newtonsoft.Json.Linq;
 namespace LeetCode
 {
     [TestClass]
-    public class Template1
+    public class FindEmployeesClass
     {
 
         [TestMethod]
-        public void Template1_Solutions()
+        public void FindEmployees_Solutions()
         {
             var o = RawStringToNormalizedJson("{\"company_name\":\"PayScale, Inc.\",\"offices\":[{\"office\":\"Seattle\",\"employees\":[{\"employee_name\":\"Adam Deringer\",\"company_name\":\"PayScale, Inc.\",\"started_at\":\"2010-05-21T17:00:00.000Z\"}]}]}");
 
@@ -64,7 +64,8 @@ namespace LeetCode
             }
 
             employees = employees
-                .Select(e => {
+                .Select(e =>
+                {
                     if (!DateTime.TryParse(e.StartedAt, out DateTime date))
                         e.StartedAtValid = false;
                     return e;
