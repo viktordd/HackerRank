@@ -7,16 +7,27 @@ namespace Algorithms
     public class BinarySearchTest
     {
         [DataTestMethod]
-        [DataRow(new[] { 2, 3, 4, 10, 40 }, 10)]
-        [DataRow(new[] { 2, 3, 4, 10, 40 }, 9)]
-        [DataRow(new[] { 2, 3, 4, 10, 40 }, 11)]
-        [DataRow(new[] { 2, 3, 4, 10, 40 }, 1)]
-        [DataRow(new[] { 2, 3, 4, 10, 40 }, 41)]
+        [DataRow(new[] { 2, 4, 6, 10, 40 }, 6)]  // 2
+        [DataRow(new int[0], 9)]                 // ~0
+        [DataRow(new[] { 2, 4, 6, 10, 40 }, 1)]  // ~0
+        [DataRow(new[] { 2, 4, 6, 10, 40 }, 3)]  // ~1
+        [DataRow(new[] { 2, 4, 6, 10, 40 }, 5)]  // ~2
+        [DataRow(new[] { 2, 4, 6, 10, 40 }, 7)]  // ~3
+        [DataRow(new[] { 2, 4, 6, 10, 40 }, 11)] // ~4
+        [DataRow(new[] { 2, 4, 6, 10, 40 }, 41)] // ~5
+        [DataRow(new[] { 2, 4, 6, 10, 40, 45 }, 1)]  // ~0
+        [DataRow(new[] { 2, 4, 6, 10, 40, 45 }, 3)]  // ~1
+        [DataRow(new[] { 2, 4, 6, 10, 40, 45 }, 5)]  // ~2
+        [DataRow(new[] { 2, 4, 6, 10, 40, 45 }, 7)]  // ~3
+        [DataRow(new[] { 2, 4, 6, 10, 40, 45 }, 11)] // ~4
+        [DataRow(new[] { 2, 4, 6, 10, 40, 45 }, 41)] // ~5
+        [DataRow(new[] { 2, 4, 6, 10, 40, 45 }, 46)] // ~6
         public void Test(int[] arr, int x)
         {
+            var expected = Array.BinarySearch(arr, x);
+
             var solution = new BinarySearchClass();
             var result = solution.BinarySearch(arr, x);
-            var expected = Array.BinarySearch(arr, x);
             Assert.AreEqual(expected, result);
         }
     }
@@ -26,9 +37,13 @@ namespace Algorithms
     {
         public int BinarySearch<T>(T[] arr, T x) where T : IComparable<T>
         {
+            if (arr.Length == 0)
+                return -1;
+
             int comp = 0;
             int l = 0;
             int r = arr.Length - 1;
+
             while (l < r)
             {
                 int m = l + (r - l) / 2;
