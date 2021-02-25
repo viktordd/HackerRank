@@ -50,10 +50,10 @@ namespace Algorithms
 
                 comp = x.CompareTo(arr[m]);
 
-                if (comp == 0)
+                if (comp == 0) // x == m
                     return m;
 
-                if (comp < 0)
+                if (comp < 0) // x < m
                     r = m - 1;
 
                 else
