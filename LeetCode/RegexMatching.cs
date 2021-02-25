@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Folder
+namespace LeetCode
 {
     [TestClass]
     public class RegexMatchingTest
