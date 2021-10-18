@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace LeetCode
 {
@@ -8,17 +7,17 @@ namespace LeetCode
     {
         [DataTestMethod]
         [DataRow(true)]
-        public void Test(bool expected)
+        public void Template_Solutions(bool expected)
         {
             var solution = new TemplateClass();
-            var result = solution.Template();
+            var result = solution.Method();
             Assert.AreEqual(expected, result);
         }
     }
 
     public class TemplateClass
     {
-        public bool Template()
+        public bool Method()
         {
             return true;
         }
