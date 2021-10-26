@@ -35,17 +35,7 @@ namespace LeetCode
             var space = new string(' ', spaces / breaks);
             var leftOver = new string(' ', spaces % breaks);
 
-            StringBuilder sb = new(words[0]);
-
-            for (int i = 1; i < words.Length; i++)
-            {
-                sb.Append(space);
-                sb.Append(words[i]);
-            }
-
-            sb.Append(words.Length == 1 ? space : leftOver);
-
-            return sb.ToString();
+            return string.Join(space, words) + (words.Length == 1 ? space : leftOver);
         }
     }
 }

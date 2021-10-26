@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using Helpers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -62,26 +61,23 @@ namespace LeetCode
             return lines;
         }
 
-        private string ConcatWords(List<string> lineWords, int eachSpace, int extraSpaces, int maxWidth)
+        private string ConcatWords(List<string> words, int eachSpace, int extraSpaces, int maxWidth)
         {
             StringBuilder s = new();
-            s.Append(lineWords[0]);
+            s.Append(words[0]);
 
-            for (int i = 1; i < lineWords.Count; i++)
+            string extraSpace = new string(' ', eachSpace + 1);
+            string space = new string(' ', eachSpace);
+            for (int i = 1; i < words.Count; i++)
             {
-                s.Append(Spaces(eachSpace + (extraSpaces-- > 0 ? 1 : 0)));
-                s.Append(lineWords[i]);
+                s.Append(extraSpaces-- > 0 ? extraSpace : space);
+                s.Append(words[i]);
             }
 
             if (s.Length < maxWidth)
-                s.Append(Spaces(maxWidth - s.Length));
+                s.Append(new string(' ', maxWidth - s.Length));
 
             return s.ToString();
-        }
-
-        private string Spaces(int n)
-        {
-            return new string(' ', n);
         }
     }
 }
