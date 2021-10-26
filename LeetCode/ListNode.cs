@@ -10,14 +10,15 @@ namespace LeetCode
         public int val;
         public ListNode next;
 
-        public ListNode(int x = 0)
+        public ListNode(int val = 0, ListNode next = null)
         {
-            val = x;
+            this.val = val;
+            this.next = next;
         }
 
         public static ListNode Parse(string s)
         {
-            var items = s.Split(new[] {"->", " "}, StringSplitOptions.RemoveEmptyEntries);
+            var items = s.Split(new[] { ",", "->", " " }, StringSplitOptions.RemoveEmptyEntries);
 
             var head = new ListNode();
             items.Aggregate(head, (curr, item) => (curr.next = new ListNode(Convert.ToInt32(item))));
@@ -27,7 +28,12 @@ namespace LeetCode
 
         public override string ToString()
         {
-            return string.Join(" -> ", this);
+            return this.ToString(" -> ");
+        }
+
+        public string ToString(string separator)
+        {
+            return string.Join(separator, this);
         }
 
         public IEnumerator<int> GetEnumerator()
