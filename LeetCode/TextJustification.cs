@@ -81,7 +81,7 @@ namespace LeetCode
 
         private string Spaces(int n)
         {
-            return string.Join("", Enumerable.Range(1, n).Select((n) => ' '));
+            return new string(' ', n);
         }
     }
 }
