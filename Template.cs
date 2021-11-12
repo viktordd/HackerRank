@@ -4,21 +4,21 @@ using Newtonsoft.Json;
 namespace TemplateNamespace
 {
     [TestClass]
-    public class TemplateTest
+    public class Template_Test
     {
         [DataTestMethod]
         [DataRow("", true)]
         public void Template_Solutions(string arg1Json, bool expected)
         {
             var arg1 = JsonConvert.DeserializeObject<int[][]>(arg1Json);
-            var solution = new TemplateClass();
+            var solution = new Template();
             var result = solution.Method(arg1);
             Assert.AreEqual(expected, result);
         }
     }
 
     // url
-    public class TemplateClass
+    public class Template
     {
         public bool Method(int[][] arg1)
         {
