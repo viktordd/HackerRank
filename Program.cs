@@ -1,12 +1,11 @@
 ﻿using System;
 
-namespace HackerRank
+namespace HackerRank;
+
+class Program
 {
-    class Program
+    static void Main1(string[] args)
     {
-        static void Main1(string[] args)
-        {
-            Console.WriteLine("Hello World!");
-        }
+        Console.WriteLine("Hello World!");
     }
 }

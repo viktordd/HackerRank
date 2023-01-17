@@ -4,14 +4,16 @@ using System.Linq;
 using Helpers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
+namespace GeeksforGeeks;
+
 [TestClass]
 public class GFG
 {
     [TestMethod]
     public void GFG_Solutions()
     {
-        AssertEnumerable.AreEqual(new List<int> {787, 23}, kLargest(new List<int> {12, 5, 787, 1, 23}, 2));
-        AssertEnumerable.AreEqual(new List<int> {50, 30, 23}, kLargest(new List<int> {1, 23, 12, 9, 30, 2, 50}, 3));
+        AssertEnumerable.AreEqual(new List<int> { 787, 23 }, kLargest(new List<int> { 12, 5, 787, 1, 23 }, 2));
+        AssertEnumerable.AreEqual(new List<int> { 50, 30, 23 }, kLargest(new List<int> { 1, 23, 12, 9, 30, 2, 50 }, 3));
     }
 
 

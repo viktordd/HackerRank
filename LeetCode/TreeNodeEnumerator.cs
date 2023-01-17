@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace LeetCode
@@ -13,7 +14,7 @@ namespace LeetCode
             root = r;
         }
 
-        public void Dispose() { }
+        public void Dispose() { GC.SuppressFinalize(this); }
 
         public bool MoveNext()
         {
