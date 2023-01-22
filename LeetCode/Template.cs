@@ -7,7 +7,7 @@ namespace LeetCode;
 public class Template_Test
 {
     [DataTestMethod]
-    [DataRow("", true)]
+    [DataRow("[]", true)]
     public void Template_Solutions(string arg1Json, bool expected)
     {
         var arg1 = JsonSerializer.Deserialize<int[][]>(arg1Json);
