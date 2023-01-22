@@ -12,46 +12,53 @@
     /// </summary>
     class QuickUnionUF
     {
-        private readonly int[] id;
-        private readonly int[] size;
+        private readonly int[] parent;
+        private readonly int[] rank;
 
-        public QuickUnionUF(int n)
+        public QuickUnionUF(int count)
         {
-            id = new int[n];
-            size = new int[n];
-            for (int i = 0; i < n; i++)
-                id[i] = i;
+            parent = new int[count];
+            rank = new int[count];
+            for (int i = 0; i < count; i++)
+            {
+                parent[i] = i;
+                rank = 1;
+            }
         }
 
-        private int Root(int i)
+        private int FindParent(int node)
         {
-            while (i != id[i])
+            while (node != parent[node])
             {
-                id[i] = id[id[i]];
-                i = id[i];
+                //path compression
+                parent[node] = parent[parent[node]];
+                node = parent[node];
             }
-            return i;
+            return node;
         }
 
         public bool Connected(int p, int q)
         {
-            return Root(p) == Root(q);
+            return FindParent(p) == FindParent(q);
         }
 
         public void Union(int p, int q)
         {
-            int i = Root(p);
-            int j = Root(q);
-            if (i == j) return;
-            if (size[i] < size[j])
+            int parentP = FindParent(p);
+            int parentQ = FindParent(q);
+
+            if (parentP == parentQ)
+                return;
+
+            if (rank[parentP] < rank[parentQ])
             {
-                id[i] = j;
-                size[j] += size[i];
+                parent[parentP] = parentQ;
+                rank[parentQ] += rank[parentP];
             }
             else
             {
-                id[j] = i;
-                size[i] += size[j];
+                parent[parentQ] = parentP;
+                rank[parentP] += rank[parentQ];
             }
         }
     }
