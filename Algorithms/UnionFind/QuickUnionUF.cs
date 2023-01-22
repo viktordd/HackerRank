@@ -22,7 +22,7 @@
             for (int i = 0; i < count; i++)
             {
                 parent[i] = i;
-                rank = 1;
+                rank[i] = 1;
             }
         }
 
