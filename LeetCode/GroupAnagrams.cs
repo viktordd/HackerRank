@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-
+using System.Text.Json;
+using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-using Newtonsoft.Json;
 
 namespace LeetCode
 {
@@ -22,19 +20,9 @@ namespace LeetCode
 
             var result = solution.GroupAnagrams(strs);
 
-            var expected = (IList<IList<string>>)JsonConvert.DeserializeObject<List<IList<string>>>(expectedJson);
+            var expected = (IList<IList<string>>)JsonSerializer.Deserialize<List<IList<string>>>(expectedJson);
 
-            Assert.AreEqual(Sort(expected), Sort(result));
-        }
-
-        private string Sort(IList<IList<string>> expected)
-        {
-            var ex = expected.Select(l => l.OrderBy(s => s).ToList());
-
-            var res = ex.OrderBy(l => l.Count)
-                .ThenBy(l => l.First());
-
-            return JsonConvert.SerializeObject(res);
+            result.Should().BeEquivalentTo(expected);
         }
         #endregion
 
@@ -46,7 +34,7 @@ namespace LeetCode
 
                 var sorted = strs
                     .Select(str => (sorted: string.Join("", str.OrderBy(ch => ch)), str))
-                    .OrderBy(s => s);
+                    .OrderBy(s => s.sorted);
 
                 List<string> curr = null;
                 string currSorted = null;
@@ -82,16 +70,16 @@ namespace LeetCode
                     var key = GetKey(str);
                     if (!result.TryGetValue(key, out IList<string> list))
                     {
-                        list = new List<string>();
+                        list = [];
                         result.Add(key, list);
                     }
                     list.Add(str);
                 }
 
-                return result.Values.ToList();
+                return [.. result.Values];
             }
 
-            private string GetKey(string str)
+            private static string GetKey(string str)
             {
                 var count = new int[26];
                 foreach (var ch in str)
